@@ -121,6 +121,8 @@ sub2study extract "https://www.youtube.com/watch?v=vJwoB34Tv2U" -o ./output --la
 - `--keep-vtt`：是否在目标目录保留原始 `.vtt` 文件（默认不保留）。
 
 ### 步骤 2：由 AI 翻译并生成 bilingual_result.json
+> **重要规范**：必须遵守 100% 逐句全译（Sentence-by-Sentence Integrity），严禁将口语讲授提纲化或摘要缩写，中英字词比须满足 $\ge 1.5$。
+
 数据结构标准：
 ```json
 {

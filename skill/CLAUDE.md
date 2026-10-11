@@ -15,7 +15,8 @@ When the user asks you to process a YouTube video or generate a bilingual study 
 2. **Step 2: AI Proofreading & Translation (Run by Claude)**
    - Read `./output/cleaned_paragraphs.json`.
    - Proofread and refine the source text (fix speech-to-text typos, casing, missing commas, and dialogue tags).
-   - Translate each paragraph into fluent, natural Chinese in the context of the video topic.
+   - **Zero-Omission Full Translation (Strict)**: 100% faithful sentence-by-sentence translation into natural Chinese. **Never summarize or compress narrative lectures into bullet points**. Preserve all anecdotes, speaker transitions, and concrete examples.
+   - **Density Sanity Check**: Chinese character count must be $\ge 1.5\times$ English word count (red flag if $< 1.3\times$).
    - Extract 15-25 high-value language learning vocabulary words with phonetic IPA, part of speech, Chinese definition, and contextual collocations from the video.
    - Save the result to `./output/bilingual_result.json`:
      ```json

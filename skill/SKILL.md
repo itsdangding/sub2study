@@ -64,16 +64,27 @@ Before translating, pass the cleaned paragraphs through an AI proofreading step:
 
 ### Step 3: High-Fidelity Translation & Vocabulary Extraction
 For long transcripts (over 30-40 paragraphs), split the paragraphs into chunks and invoke concurrent `self` subagents or process sequentially:
-1. **Paragraph Translation Requirements**:
-   - Provide natural, context-aware, idiomatic Chinese.
-   - Accurately translate domain terminology.
-   - Maintain the paragraph's `timestamp` and source text.
-2. **Core Vocabulary Extraction (15-35 items)**:
-   - `word`: Lemma
-   - `accent`: Stress-marked form (e.g. `отма́зка`, `претендова́ть`)
-   - `pos`: Part of speech and aspect/gender (e.g. `глагол несов.`, `сущ. ж.р.`)
-   - `meaning`: Clear Chinese definition
-   - `collocation`: Real collocation/usage from the video with translation
+
+#### 1. Zero-Omission Translation Rules (★ 严格禁止偷懒与漏译 ★)
+- **100% 逐句忠实全译（Sentence-by-Sentence Integrity）**：
+  必须逐句对照翻译全部内容，保证原意完整。**严禁漏译任何整句、从句、前置铺垫或细节**。绝不可因为段落较长或口语化而删减任何话语。
+- **严禁提纲化或概括摘要（No Summarization or Forced Bulleting）**：
+  原文是口语叙述流的，**严禁脑补“第一、第二、第三、第四”清单**将其压缩为提纲！必须保留演讲者原始的口语叙述流、语气、承上启下的过渡句、所有的生动举例、调侃、轶事以及具体人名/产品名/事件名（如 Sam Altman、OpenClaw、Jony Ive 等），不得将具体的生动案例概括成抽象结论。
+- **高保真专业术语统一（Terminology Precision）**：
+  精准还原专业术语（如 Harness、Durable Workflow、MicroVM、Prompt Caching、Cache Warming、Dynamic Context、Compaction、Accessibility Tree 等）。
+- **字数与信息密度自检机制（Length & Density Sanity Check）**：
+  翻译完成后，**必须进行字数比对自检**：
+  - 英译中：正常中文字数约为英文词数的 1.6 ~ 2.2 倍（中文字数 / 英文词数 $\ge 1.5$）。
+  - 俄译中：正常中文字数约为俄语词数的 1.1 ~ 1.6 倍。
+  - **红线预警**：若中英比低于 1.3，必定存在严重漏译、跳译或概括偷懒，**必须立即打回重译，严禁直接渲染！**
+- **时间戳与原文对应**：保持段落的 `timestamp` 与原文一一对应。
+
+#### 2. Core Vocabulary Extraction (15-35 items):
+- `word`: Lemma
+- `accent`: Stress-marked form (e.g. `отма́зка`, `претендова́ть` / `proactive /prəʊˈæktɪv/`)
+- `pos`: Part of speech and aspect/gender (e.g. `глагол несов.`, `сущ. ж.р.`, `adj.`, `n.`)
+- `meaning`: Clear Chinese definition
+- `collocation`: Real collocation/usage from the video with translation
 
 Save combined results into a single `bilingual_result.json`:
 ```json

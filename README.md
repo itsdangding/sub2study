@@ -121,6 +121,8 @@ Options:
 - `--keep-vtt`: Retain raw `.vtt` file in output directory (default: `False`).
 
 ### Step 2: AI Proofreading & Translation (`bilingual_result.json`)
+> **Quality Standard**: Strictly adhere to 100% full translation (Sentence-by-Sentence Integrity). Never compress narrative lectures into bullet summaries. Chinese char count should be $\ge 1.5\times$ English word count.
+
 Data structure:
 ```json
 {
