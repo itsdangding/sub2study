@@ -5,7 +5,7 @@
 **Transform raw YouTube subtitles into publication-grade bilingual study guides (A4 PDF & Markdown notes) — Engineered for language learners, developers, and autonomous AI agents**
 
 [![Python Version](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![CLI Tool](https://img.shields.io/badge/CLI-sub2study-4E5D6C?style=for-the-badge&logo=gnubash&logoColor=white)](https://github.com/wanxiao2018/sub2study)
+[![CLI Tool](https://img.shields.io/badge/CLI-sub2study-4E5D6C?style=for-the-badge&logo=gnubash&logoColor=white)](https://github.com/itsdangding/sub2study)
 [![Renderer](https://img.shields.io/badge/Renderer-Chrome%20Headless-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.google.com/chrome/)
 [![Agent Ready](https://img.shields.io/badge/Agents-Claude%20%7C%20Codex%20%7C%20Cursor%20%7C%20AGY-7C3AED?style=for-the-badge)](./skill/)
 [![LINUX DO](https://img.shields.io/badge/LINUX%20DO-Community-E9711C?style=for-the-badge&logo=linux&logoColor=white)](https://linux.do)
@@ -80,7 +80,7 @@ flowchart LR
 
 ### 2. Installation
 ```bash
-git clone https://github.com/wanxiao2018/sub2study.git
+git clone https://github.com/itsdangding/sub2study.git
 cd sub2study
 chmod +x install.sh && ./install.sh
 ```
